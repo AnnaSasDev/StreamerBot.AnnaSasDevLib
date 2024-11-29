@@ -24,8 +24,50 @@ public static class CphService {
     
     public static bool TrySendMessage(string message) {
         if (Cph is null) return false;
-        Cph.SendMessage(message);
-        return true;
+        TryGetArg("commandSource", out string? commandSource);
+        
+        switch (commandSource?.ToLowerInvariant()) {
+            case null : // If not a command, do some normal behaviour and return
+            case "twitch": {
+                Cph.SendMessage(message);
+                return true;
+            }
+
+            case "youtube": {
+                Cph.SendYouTubeMessage(message);
+                return true;
+            }
+
+            default: {
+                ErrorMessageService.AddErrorMessage("Could not find the commandSource argument'");
+                return false;
+            }
+        }
+    }
+
+    public static bool TryReplyMessage(string message) {
+        if (Cph is null) return false;
+        TryGetArg("commandSource", out string? commandSource);
+        
+        switch (commandSource?.ToLowerInvariant()) {
+            case null : // If not a command, do some normal behaviour and return
+            case "twitch": {
+                TryGetArg("msgId", out string? msgId);
+                Cph.TwitchReplyToMessage(message, msgId);
+                return true;
+            }
+
+            case "youtube": {
+                // YouTube doesn't support replies, so default to sending it as a normal message.
+                Cph.SendYouTubeMessage(message);
+                return true;
+            }
+
+            default: {
+                ErrorMessageService.AddErrorMessage("Could not find the commandSource argument'");
+                return false;
+            }
+        }
     }
     
     public static bool SendFailureMessages(string extraErrorMessage) {
@@ -54,6 +96,20 @@ public static class CphService {
         value = default;
         if (!TryGetCph(out IInlineInvokeProxy? cph)) return false;
         if (!cph.TryGetArg(argName, out value)) return false;
+        return value is not null;
+    }
+
+    public static bool TryGetGlobalVar<T>(string varName, [NotNullWhen(true)] out T? value) {
+        value = default;
+        if (!TryGetCph(out IInlineInvokeProxy? cph)) return false;
+        value = cph.GetGlobalVar<T>(varName);
+        return value is not null;
+    }
+
+    public static bool TryGetGlobalNonPersistedVar<T>(string varName, [NotNullWhen(true)] out T? value) {
+        value = default;
+        if (!TryGetCph(out IInlineInvokeProxy? cph)) return false;
+        value = cph.GetGlobalVar<T>(varName, false);
         return value is not null;
     }
 }

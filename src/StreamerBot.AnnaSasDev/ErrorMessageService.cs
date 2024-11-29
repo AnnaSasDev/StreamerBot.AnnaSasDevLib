@@ -12,7 +12,10 @@ public static class ErrorMessageService {
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public static void AddErrorMessage(string errorMessage) => ErrorMessages.Enqueue(errorMessage);
+    public static bool AddErrorMessage(string errorMessage) {
+        ErrorMessages.Enqueue(errorMessage);
+        return false;
+    }
     public static bool TryGetErrorMessage(out string? errorMessage) {
         errorMessage = null;
         if (ErrorMessages.Count == 0) return false;
