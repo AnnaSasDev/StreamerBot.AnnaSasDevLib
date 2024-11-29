@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7CF48305-3D38-4DDC-AA69-0FF802176949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamerBot.AnnaSasDevLib", "src\StreamerBot.AnnaSasDevLib\StreamerBot.AnnaSasDevLib.csproj", "{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamerBot.AnnaSasDev", "src\StreamerBot.AnnaSasDev\StreamerBot.AnnaSasDev.csproj", "{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
