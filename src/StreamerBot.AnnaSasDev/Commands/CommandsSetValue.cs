@@ -14,10 +14,10 @@ public static class CommandsSetValue {
         // Always needed to run the various libraries that re in this assembly.
         CphService.SetCph(cph);
         
-        if (!InputParsingService.TryParseInput()) return CphService.SendFailureMessages();
-        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureMessages("No Arguments for this command were given."); 
-        if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureMessages("Could not find command.");
-        if (!InputParsingService.TryGetInput(1, out string? argument)) return CphService.SendFailureMessages("Could not find argument.");
+        if (!InputParsingService.TryParseInput()) return CphService.SendFailureReply();
+        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureReply("No Arguments for this command were given."); 
+        if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureReply("Could not find command.");
+        if (!InputParsingService.TryGetInput(1, out string? argument)) return CphService.SendFailureReply("Could not find argument.");
 
         switch (command.ToLowerInvariant(), argument.ToLowerInvariant()) {
             #region FollowerGoal
@@ -57,6 +57,6 @@ public static class CommandsSetValue {
             #endregion
         }
         
-        return CphService.SendFailureMessages();
+        return CphService.SendFailureReply();
     }
 }

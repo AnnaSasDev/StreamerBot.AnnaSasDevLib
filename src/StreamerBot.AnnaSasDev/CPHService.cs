@@ -45,7 +45,7 @@ public static class CphService {
         }
     }
 
-    public static bool TryReplyMessage(string message) {
+    public static bool TrySendReply(string message) {
         if (Cph is null) return false;
         TryGetArg("commandSource", out string? commandSource);
         
@@ -68,6 +68,25 @@ public static class CphService {
                 return false;
             }
         }
+    }
+
+    public static bool SendFailureReply(string extraErrorMessage) {
+        ErrorMessageService.AddErrorMessage(extraErrorMessage);
+        return SendFailureReply();
+        
+    }
+    public static bool SendFailureReply() {
+        while (ErrorMessageService.TryGetErrorMessage(out string? message)) {
+            if(TrySendReply(string.IsNullOrWhiteSpace(message)
+                    ? "Something went wrong without further information."
+                    : $"ERROR : {message}"
+                )) continue;
+            
+            // Something went wrong during sending of the error message
+            // To ensure we don't cause an infinite loop we break here.
+            break;
+        }
+        return true;
     }
     
     public static bool SendFailureMessages(string extraErrorMessage) {

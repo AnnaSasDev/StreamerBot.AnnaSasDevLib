@@ -32,23 +32,23 @@ public static class CommandsGit {
         // Always needed to run the various libraries that re in this assembly.
         CphService.SetCph(cph);
 
-        if (!InputParsingService.TryParseInput()) return CphService.SendFailureMessages();
-        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.TrySendMessage("something default"); 
-        if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureMessages("Could not find the command.");
+        if (!InputParsingService.TryParseInput()) return CphService.SendFailureReply();
+        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureReply("something default"); 
+        if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureReply("Could not find the command.");
         
         switch (command.ToLowerInvariant()) {
             #region AterraEngine
             case "ateraengine":
             case "aterraengine":
             case "aterra": {
-                return CphService.TrySendMessage($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}"); 
+                return CphService.SendFailureReply($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}"); 
             }
             #endregion
             
             #region InfiniLore
             case "infinlore":
             case "infinilore": {
-                return CphService.TrySendMessage($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}"); 
+                return CphService.SendFailureReply($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}"); 
             }
             #endregion
 
@@ -59,17 +59,17 @@ public static class CommandsGit {
             case "codeof-chaos":
             case "code-of-chaos": {
                 const string defaultAnswer = $"Anna has a multitude of random project, all of these are compiled into the Code Of Chaos Organization : {UrlOrgCodeOfChaos}";
-                if (!InputParsingService.TryGetInput(1, out string? repoName)) return CphService.TryReplyMessage(defaultAnswer);
+                if (!InputParsingService.TryGetInput(1, out string? repoName)) return CphService.TrySendReply(defaultAnswer);
 
                 switch (repoName.ToLowerInvariant()) {
                     case "ctw":
                     case "colored-tags-wrangler":
                     case "coloredtagswrangler": {
-                        return CphService.TryReplyMessage($"Anna made a plugin for Obsidian.md called 'Colored Tags Wrangler' which add fancy colors to your tags : {UrlColoredTagsWrangler}");
+                        return CphService.TrySendReply($"Anna made a plugin for Obsidian.md called 'Colored Tags Wrangler' which add fancy colors to your tags : {UrlColoredTagsWrangler}");
                     }
                     
                     default: {
-                        return CphService.TryReplyMessage(defaultAnswer);
+                        return CphService.TrySendReply(defaultAnswer);
                     }
                 }
                 
@@ -77,7 +77,7 @@ public static class CommandsGit {
             #endregion
                 
             default: {
-                return CphService.TryReplyMessage($"Anna does lots of chaotic coding projects, most can be found at {UrlOrgCodeOfChaos} or {UrlAnnaSasDev}."); 
+                return CphService.TrySendReply($"Anna does lots of chaotic coding projects, most can be found at {UrlOrgCodeOfChaos} or {UrlAnnaSasDev}."); 
             }
         }
     }
