@@ -4,7 +4,6 @@
 using Streamer.bot.Plugin.Interface;
 
 namespace StreamerBot.AnnaSasDev.Commands;
-
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ public static class CommandsGit {
     private const string UrlOrgCodeOfChaos = "https://github.com/code-of-chaos";
     private const string UrlOrgInfiniLore = "https://github.com/InfiniLore";
     private const string UrlColoredTagsWrangler = "https://github.com/code-of-chaos/obsidian-colored_tags_wrangler";
-    
+
     // Todo test if all urls are valid?
     // Todo put all urls in a small lib for easy access and testing.
     public static string[] AllUrls => [
@@ -24,7 +23,7 @@ public static class CommandsGit {
         UrlOrgInfiniLore,
         UrlColoredTagsWrangler
     ];
-    
+
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
@@ -33,22 +32,22 @@ public static class CommandsGit {
         CphService.SetCph(cph);
 
         if (!InputParsingService.TryParseInput()) return CphService.SendFailureReply();
-        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureReply("something default"); 
+        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureReply("something default");
         if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureReply("Could not find the command.");
-        
+
         switch (command.ToLowerInvariant()) {
             #region AterraEngine
             case "ateraengine":
             case "aterraengine":
             case "aterra": {
-                return CphService.SendFailureReply($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}"); 
+                return CphService.SendFailureReply($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}");
             }
             #endregion
-            
+
             #region InfiniLore
             case "infinlore":
             case "infinilore": {
-                return CphService.SendFailureReply($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}"); 
+                return CphService.SendFailureReply($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}");
             }
             #endregion
 
@@ -67,17 +66,17 @@ public static class CommandsGit {
                     case "coloredtagswrangler": {
                         return CphService.TrySendReply($"Anna made a plugin for Obsidian.md called 'Colored Tags Wrangler' which add fancy colors to your tags : {UrlColoredTagsWrangler}");
                     }
-                    
+
                     default: {
                         return CphService.TrySendReply(defaultAnswer);
                     }
                 }
-                
+
             }
             #endregion
-                
+
             default: {
-                return CphService.TrySendReply($"Anna does lots of chaotic coding projects, most can be found at {UrlOrgCodeOfChaos} or {UrlAnnaSasDev}."); 
+                return CphService.TrySendReply($"Anna does lots of chaotic coding projects, most can be found at {UrlOrgCodeOfChaos} or {UrlAnnaSasDev}.");
             }
         }
     }

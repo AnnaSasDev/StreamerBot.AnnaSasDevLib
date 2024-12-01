@@ -4,11 +4,11 @@
         <TargetFramework>net472</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
-        
+
         <!-- Variables to be set by the developer using this library during development -->
         <StreamerBotPath>E:\bots\Streamer.bot-x64-0.2.4\</StreamerBotPath>
-        <OutputPath>$(StreamerBotPath)dlls\</OutputPath> 
-        
+        <OutputPath>$(StreamerBotPath)dlls\</OutputPath>
+
         <!-- Temporary solutions to fix some issues -->
         <Optimize>false</Optimize>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -17,89 +17,89 @@
 
     <ItemGroup>
         <!-- List of DLLs included with Streamer.bot, do not copy to output -->
-        <Reference Include="$(StreamerBotPath)LiteDB.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)LumiaSdk.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Markdig.Signed.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)MathParser.org-mXparser.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Bcl.AsyncInterfaces.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.CodeAnalysis.CSharp.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.CodeAnalysis.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Extensions.DependencyInjection.Abstractions.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Extensions.DependencyInjection.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Toolkit.Uwp.Notifications.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.Core.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.WinForms.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.Wpf.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Microsoft.Win32.Registry.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Mono.Cecil.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Mono.Cecil.Mdb.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Mono.Cecil.Pdb.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Mono.Cecil.Rocks.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.Asio.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.Core.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.Midi.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.Vorbis.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.Wasapi.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.WinForms.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NAudio.WinMM.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Newtonsoft.Json.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)NVorbis.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)ObjectListView.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)ObsWebsocket.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)ScintillaNET.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Semver.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Sentry.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Serilog.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Serilog.Sinks.Async.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Serilog.Sinks.File.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Speech.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Auth.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Common.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.CrowdControl.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.DonorDrive.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Elgato.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.EmoteHandlers.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.HypeRate.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Meld.Studio.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Mtion.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Pally.gg.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Plugin.Interface.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.PolyPop.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Pulsoid.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.StreamElements.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Streamlabs.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.ThrowingSystem.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.TipeeeStream.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.TreatStream.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Trovo.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.VoiceMod.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.VTubeStudio.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.Website.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Streamer.bot.YouTube.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Buffers.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Collections.Immutable.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Diagnostics.DiagnosticSource.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Memory.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Numerics.Vectors.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Reflection.Metadata.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Runtime.CompilerServices.Unsafe.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Security.AccessControl.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Security.Principal.Windows.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Text.Encoding.CodePages.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Text.Encodings.Web.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Text.Json.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Threading.Channels.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.Threading.Tasks.Extensions.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)System.ValueTuple.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Twitch.ChatClient.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Twitch.ClientApi.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Twitch.Common.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Twitch.EventSub.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Twitch.PubSub.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)AudioDevices.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)AudioPlayback.dll"  Private="False" />
-        <Reference Include="$(StreamerBotPath)Common.dll"  Private="False" />
+        <Reference Include="$(StreamerBotPath)LiteDB.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)LumiaSdk.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Markdig.Signed.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)MathParser.org-mXparser.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Bcl.AsyncInterfaces.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.CodeAnalysis.CSharp.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.CodeAnalysis.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Extensions.DependencyInjection.Abstractions.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Extensions.DependencyInjection.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Toolkit.Uwp.Notifications.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.Core.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.WinForms.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Web.WebView2.Wpf.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Microsoft.Win32.Registry.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Mono.Cecil.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Mono.Cecil.Mdb.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Mono.Cecil.Pdb.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Mono.Cecil.Rocks.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.Asio.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.Core.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.Midi.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.Vorbis.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.Wasapi.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.WinForms.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NAudio.WinMM.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Newtonsoft.Json.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)NVorbis.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)ObjectListView.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)ObsWebsocket.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)ScintillaNET.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Semver.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Sentry.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Serilog.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Serilog.Sinks.Async.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Serilog.Sinks.File.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Speech.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Auth.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Common.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.CrowdControl.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.DonorDrive.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Elgato.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.EmoteHandlers.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.HypeRate.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Meld.Studio.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Mtion.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Pally.gg.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Plugin.Interface.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.PolyPop.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Pulsoid.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.StreamElements.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Streamlabs.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.ThrowingSystem.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.TipeeeStream.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.TreatStream.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Trovo.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.VoiceMod.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.VTubeStudio.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.Website.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Streamer.bot.YouTube.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Buffers.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Collections.Immutable.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Diagnostics.DiagnosticSource.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Memory.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Numerics.Vectors.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Reflection.Metadata.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Runtime.CompilerServices.Unsafe.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Security.AccessControl.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Security.Principal.Windows.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Text.Encoding.CodePages.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Text.Encodings.Web.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Text.Json.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Threading.Channels.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.Threading.Tasks.Extensions.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)System.ValueTuple.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Twitch.ChatClient.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Twitch.ClientApi.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Twitch.Common.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Twitch.EventSub.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Twitch.PubSub.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)AudioDevices.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)AudioPlayback.dll" Private="False"/>
+        <Reference Include="$(StreamerBotPath)Common.dll" Private="False"/>
     </ItemGroup>
 
 </Project>
