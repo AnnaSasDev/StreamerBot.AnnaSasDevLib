@@ -40,14 +40,14 @@ public static class CommandsGit {
             case "ateraengine":
             case "aterraengine":
             case "aterra": {
-                return CphService.SendFailureReply($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}");
+                return CphService.TrySendReply($"Anna is developing their own Game Engine called AterraEngine : {UrlOrgAterraEngine}");
             }
             #endregion
 
             #region InfiniLore
             case "infinlore":
             case "infinilore": {
-                return CphService.SendFailureReply($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}");
+                return CphService.TrySendReply($"Anna is developing their own platform to create and share Lore : {UrlOrgInfiniLore}");
             }
             #endregion
 
