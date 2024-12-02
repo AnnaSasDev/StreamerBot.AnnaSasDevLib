@@ -25,7 +25,7 @@ public static class FollowerGoalService {
 
         // cph.TtsSpeak("Default", "Quack Quack Quack A new ducky in the pond");
         // cph.PlaySound(@"E:\bots\sounds\ducks.wav");
-        cph.PlaySound(@"E:\bots\sounds\rubber_duck.mp3");
+        // cph.PlaySound(@"E:\bots\sounds\rubber_duck.mp3");
         return CphService.SendFailureMessages();
     }
 

@@ -60,6 +60,35 @@ public static class CommandsSetValue {
                 break;
             }
             #endregion
+            
+            #region FollowerPanel
+            case ("followerpanel", "reset"): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-follower", "_");
+                break;
+            }
+            case ("followerpanel", {} arg): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-follower", arg);
+                break;
+            }
+            #endregion
+            
+            #region SubscriberPanel
+            case ("subpanel", "reset"):
+            case ("subscriberpanel", "reset"): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", "_");
+                break;
+            }
+
+            case ("subpanel", {} arg): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
+                break;
+            }
+            case ("subscriberpanel", {} arg): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
+                break;
+            }
+            #endregion
+                
         }
 
         return CphService.SendFailureReply();
