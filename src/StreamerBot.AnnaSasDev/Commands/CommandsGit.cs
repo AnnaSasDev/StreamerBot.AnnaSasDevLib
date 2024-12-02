@@ -13,6 +13,7 @@ public static class CommandsGit {
     private const string UrlOrgCodeOfChaos = "https://github.com/code-of-chaos";
     private const string UrlOrgInfiniLore = "https://github.com/InfiniLore";
     private const string UrlColoredTagsWrangler = "https://github.com/code-of-chaos/obsidian-colored_tags_wrangler";
+    private const string UrlStreamerBotAnnaSasDevLib = "https://github.com/AnnaSasDev/StreamerBot.AnnaSasDevLib";
 
     // Todo test if all urls are valid?
     // Todo put all urls in a small lib for easy access and testing.
@@ -72,6 +73,13 @@ public static class CommandsGit {
                     }
                 }
 
+            }
+            #endregion
+            
+            #region Bot
+            case "twitch-bot":
+            case "twitchbot": {
+                return CphService.TrySendReply($"Anna uses Streamer.Bot for most of her twitch automation. This is extended by writing her own service library : {UrlStreamerBotAnnaSasDevLib}");
             }
             #endregion
 
