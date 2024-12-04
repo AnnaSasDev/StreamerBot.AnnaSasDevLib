@@ -61,29 +61,36 @@ public static class CommandsSetValue {
             }
             #endregion
             
-            #region FollowerPanel
-            case ("followerpanel", "reset"): {
-                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-follower", "_");
-                break;
-            }
-            case ("followerpanel", {} arg): {
-                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-follower", arg);
-                break;
-            }
-            #endregion
-            
             #region SubscriberPanel
-            case ("subpanel", "reset"):
+            case ("subpnl", "reset"):
             case ("subscriberpanel", "reset"): {
-                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", "_");
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", "");
                 break;
             }
 
-            case ("subpanel", {} arg): {
+            case ("subpnl", {} arg): {
                 cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
                 break;
             }
             case ("subscriberpanel", {} arg): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
+                break;
+            }
+            #endregion
+            
+            #region FollowerPanel
+            case ("fwpnl", "reset"):
+            case ("followerpanel", "reset"): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", "");
+                break;
+            }
+
+            case ("fwpnl", {} arg): {
+                cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
+                break;
+            }
+            
+            case ("followerpanel", {} arg): {
                 cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subscriber", arg);
                 break;
             }
