@@ -33,7 +33,7 @@ public static class CommandsGit {
         CphService.SetCph(cph);
 
         if (!InputParsingService.TryParseInput()) return CphService.SendFailureReply();
-        if (InputParsingService.GetAmountOfArguments() <= 0) return CphService.SendFailureReply("something default");
+        if (InputParsingService.GetAmountOfArguments() <= 1) return CphService.TrySendReply("Anna does lots of chaotic coding projects, most can be found at https://github.com/code-of-chaos or https://github.com/AnnaSasDev");
         if (!InputParsingService.TryGetInput(0, out string? command)) return CphService.SendFailureReply("Could not find the command.");
 
         switch (command.ToLowerInvariant()) {
