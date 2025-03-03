@@ -5,21 +5,21 @@ namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public static class ErrorMessageService {
-    private static readonly Queue<string> ErrorMessages = new();
+public class ErrorMessageService {
+    private readonly Queue<string> _errorMessages = new();
 
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public static bool AddErrorMessage(string errorMessage) {
-        ErrorMessages.Enqueue(errorMessage);
+    public bool Add(string errorMessage) {
+        _errorMessages.Enqueue(errorMessage);
         return false;
     }
-    public static bool TryGetErrorMessage(out string? errorMessage) {
+    public bool TryGet(out string? errorMessage) {
         errorMessage = null;
-        if (ErrorMessages.Count == 0) return false;
+        if (_errorMessages.Count == 0) return false;
 
-        errorMessage = ErrorMessages.Dequeue();
+        errorMessage = _errorMessages.Dequeue();
         return true;
     }
 }

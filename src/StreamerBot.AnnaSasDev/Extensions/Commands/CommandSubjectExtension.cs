@@ -1,28 +1,27 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-using Streamer.bot.Plugin.Interface;
+using StreamerBot.AnnaSasDev.Services;
 
-namespace StreamerBot.AnnaSasDev.Services;
-
+namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public static class UpdateRewardCost {
+public static class CommandSubjectExtension {
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public static bool Update(IInlineInvokeProxy cph) {
-        // Always needed to run the various libraries that re in this assembly.
-        CphService.SetCph(cph);
-        
-        if (!CphService.TryGetArg("rewardCost", out long? rewardCost)) return CphService.SendFailureMessages("Could not find the rawInput argument.");
-        if (!CphService.TryGetGlobalVar("rewardCostIncrement", out long? increment)) return CphService.SendFailureMessages("Could not find the rewardCostIncrement global variable.");
+    public static bool CommandSubject(this StreamerBotWrapper wrapper) {
+        if (!wrapper.TryGetArg("rawInput", out string? rawInput))
+            return wrapper.SendFailureMessages("Could not find the rawInput argument.");
 
-        rewardCost += increment;
-        
-        cph.SetArgument("rewardCost", rewardCost);
+        if (!string.IsNullOrWhiteSpace(rawInput))
+            wrapper.TrySetGlobalPersistedVar(ObsSpecifiedService.ObjectSubjectTextVarName, rawInput);
 
+        if (!wrapper.ObsSpecifiedService.TryUpdateSubjectPanel())
+            return wrapper.SendFailureMessages("Could not update the OBS source.");
+
+        // Everything is nominal
         return true;
     }
 }
