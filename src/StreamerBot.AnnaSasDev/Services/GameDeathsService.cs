@@ -52,23 +52,29 @@ public class GameDeathsService(StreamerBotWrapper wrapper) {
         if (!gameDeaths.ContainsKey(gameName)) gameDeaths.Add(gameName, 0); 
         if(!wrapper.TrySetGlobalVar(CurrentGameName, gameName)) return wrapper.SendFailureMessages("Could not set the current game name.");
         
-        return TrySetGameDeaths(gameDeaths);
+        if (!TrySetGameDeaths(gameDeaths) ) return wrapper.SendFailureMessages("Could not set the gameDeathsJson argument.");
+        int deaths = gameDeaths[gameName];
+        wrapper.Cph.ObsSetGdiText("Game - Stream", "text-deaths", $"{deaths} Deaths");
+        return true;
     }
 
     public bool OnGameDeath() {
         if (!wrapper.TryGetGlobalVar(CurrentGameName, out string? gameName)) {
             TwitchUserInfo? info = wrapper.Cph.TwitchGetBroadcaster();
-            if (info is null) return wrapper.SendFailureMessages("Could not find the current game name.");
+            if (info is null) return wrapper.SendFailureMessages("Could not find the current broadcaster info.");
             
             TwitchUserInfoEx? userInfo = wrapper.Cph.TwitchGetExtendedUserInfoById(info.UserId);
-            if (userInfo is null) return wrapper.SendFailureMessages("Could not find the current game name.");
+            if (userInfo is null) return wrapper.SendFailureMessages("Could not find the current broadcaster extended info.");
 
             gameName = userInfo.Game;
         }
         if (!TryGetGameDeaths(out Dictionary<string, int> gameDeaths)) return wrapper.SendFailureMessages("Could not find the gameDeathsJson argument.");
         if (!gameDeaths.ContainsKey(gameName)) gameDeaths.Add(gameName, 0);
         gameDeaths[gameName]++;
-        return TrySetGameDeaths(gameDeaths);
+        if (!TrySetGameDeaths(gameDeaths) ) return wrapper.SendFailureMessages("Could not set the gameDeathsJson argument.");
+        int deaths = gameDeaths[gameName];
+        wrapper.Cph.ObsSetGdiText("Game - Stream", "text-deaths", $"{deaths} Deaths");
+        return true;
     }
 
     public bool OnGameDeathReset() {
