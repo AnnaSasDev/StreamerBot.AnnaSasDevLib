@@ -84,7 +84,9 @@ public class GameDeathsService(StreamerBotWrapper wrapper) {
         if (!TrySetGameDeaths(gameDeaths) ) return wrapper.SendFailureMessages("Could not set the gameDeathsJson argument.");
         int deaths = gameDeaths[gameName];
         wrapper.Cph.ObsSetGdiText("Game - Stream", "text-deaths", $"{deaths} Deaths");
-        return true;
+        
+        // output it in chat as well
+        return OnGameDeathGetCount();
     }
 
     public bool OnGameDeathReset() {
