@@ -1,10 +1,13 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
+
 namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public static class CommandGitExtension {
     private const string UrlAnnaSasDev = "https://github.com/AnnaSasDev";
     private const string UrlOrgAterraEngine = "https://github.com/AterraEngine";
@@ -28,9 +31,9 @@ public static class CommandGitExtension {
     // -----------------------------------------------------------------------------------------------------------------
     public static bool CommandGit(this StreamerBotWrapper wrapper) {
 
-        if (!wrapper.TryParseUserInput()) return wrapper.SendFailureReply();
+        if (!wrapper.TryParseUserInput()) return wrapper.SendFailureMessages();
         if (wrapper.GetAmountOfUserInputArguments() <= 1) return wrapper.TrySendReply("Anna does lots of chaotic coding projects, most can be found at https://github.com/code-of-chaos or https://github.com/AnnaSasDev");
-        if (!wrapper.TryGetUserInput(0, out string? command)) return wrapper.SendFailureReply("Could not find the command.");
+        if (!wrapper.TryGetUserInput(0, out string? command)) return wrapper.SendFailureMessages("Could not find the command.");
 
         switch (command.ToLowerInvariant()) {
             #region AterraEngine

@@ -1,10 +1,13 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
+
 namespace StreamerBot.AnnaSasDev.Services;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
     public const string ObjectSubjectTextVarName = "CSharpTrackedArgument_ObsSubjectText";
 

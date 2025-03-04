@@ -2,18 +2,20 @@
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
 using StreamerBot.AnnaSasDev.Services;
+using System.Diagnostics.CodeAnalysis;
 
 namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public static class CommandSetValueExtension {
     public static bool CommandSetValue(this StreamerBotWrapper wrapper) {
 
-        if (!wrapper.TryParseUserInput()) return wrapper.SendFailureReply();
-        if (wrapper.GetAmountOfUserInputArguments() <= 0) return wrapper.SendFailureReply("No Arguments for this command were given.");
-        if (!wrapper.TryGetUserInput(0, out string? command)) return wrapper.SendFailureReply("Could not find command.");
-        if (!wrapper.TryGetUserInput(1, out string? argument)) return wrapper.SendFailureReply("Could not find argument.");
+        if (!wrapper.TryParseUserInput()) return wrapper.SendFailureMessages();
+        if (wrapper.GetAmountOfUserInputArguments() <= 0) return wrapper.SendFailureMessages("No Arguments for this command were given.");
+        if (!wrapper.TryGetUserInput(0, out string? command)) return wrapper.SendFailureMessages("Could not find command.");
+        if (!wrapper.TryGetUserInput(1, out string? argument)) return wrapper.SendFailureMessages("Could not find argument.");
 
         switch (command.ToLowerInvariant(), argument.ToLowerInvariant()) {
             #region FollowerGoal
@@ -95,6 +97,6 @@ public static class CommandSetValueExtension {
                 
         }
 
-        return wrapper.SendFailureReply();
+        return wrapper.SendFailureMessages();
     }
 }

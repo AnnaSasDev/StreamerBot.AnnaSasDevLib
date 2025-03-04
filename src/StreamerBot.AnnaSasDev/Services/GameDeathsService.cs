@@ -2,6 +2,7 @@
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
 using Streamer.bot.Plugin.Interface.Model;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace StreamerBot.AnnaSasDev.Services;
@@ -9,6 +10,7 @@ namespace StreamerBot.AnnaSasDev.Services;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public class GameDeathsService(StreamerBotWrapper wrapper) {
     private const string Prefix = "CSharpTrackedArgument_GameDeaths_";
     private const string GameDeathsJson = Prefix + "GameDeathsJson";

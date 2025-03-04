@@ -10,6 +10,7 @@ namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
+[SuppressMessage("ReSharper", "UnusedMember.Global")]
 public class StreamerBotWrapper(IInlineInvokeProxy cph) {
     public IInlineInvokeProxy Cph { get; } = cph;
     public readonly ErrorMessageService ErrorMessages = new();
@@ -73,26 +74,6 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
         }
     }
 
-    public bool SendFailureReply(string extraErrorMessage) {
-        ErrorMessages.Add(extraErrorMessage);
-        return SendFailureReply();
-    }
-    
-    public bool SendFailureReply() {
-        while (ErrorMessages.TryGet(out string? message)) {
-            if (TrySendReply(string.IsNullOrWhiteSpace(message)
-                    ? "Something went wrong without further information."
-                    : $"ERROR : {message}"
-                )) continue;
-
-            // Something went wrong during sending of the error message
-            // To ensure we don't cause an infinite loop we break here.
-            break;
-        }
-
-        return true;
-    }
-
     public bool SendFailureMessages(string extraErrorMessage) {
         ErrorMessages.Add(extraErrorMessage);
         return SendFailureMessages();
@@ -118,9 +99,7 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
     // -----------------------------------------------------------------------------------------------------------------
     #region Argument manipulation
     public bool TryGetArg<T>(string argName, [NotNullWhen(true)] out T? value) {
-        value = default;
         if (!Cph.TryGetArg(argName, out value)) return false;
-        
         return value is not null;
     }
 
