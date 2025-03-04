@@ -153,7 +153,7 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
             SetUserInput(inputVariable, foundArguments++);
         }
 
-        Cph.SetArgument(Defaults.UserInputAmountOfArguments, foundArguments + 1);// Else the amount of arguments will be off by one.
+        Cph.SetArgument(Defaults.UserInputAmountOfArguments, foundArguments + 1); // Else the amount of arguments will be off by one.
 
         return true;
     }

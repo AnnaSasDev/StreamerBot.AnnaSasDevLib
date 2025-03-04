@@ -61,6 +61,12 @@ public class GameDeathsService(StreamerBotWrapper wrapper) {
     }
 
     public bool OnGameDeath() {
+        // Try and get user input on howmany deaths we should add
+        if (!wrapper.TryParseUserInput()) return wrapper.SendFailureMessages();
+        int deathsToAdd = 1;
+        if (wrapper.TryGetUserInput(0, out string? targetInt) && !int.TryParse(targetInt, out deathsToAdd)) return wrapper.SendFailureMessages("Could not parse the targetInt argument.");
+
+        // Try and get the game name
         if (!wrapper.TryGetGlobalVar(CurrentGameName, out string? gameName)) {
             TwitchUserInfo? info = wrapper.Cph.TwitchGetBroadcaster();
             if (info is null) return wrapper.SendFailureMessages("Could not find the current broadcaster info.");
@@ -72,7 +78,9 @@ public class GameDeathsService(StreamerBotWrapper wrapper) {
         }
         if (!TryGetGameDeaths(out Dictionary<string, int> gameDeaths)) return wrapper.SendFailureMessages("Could not find the gameDeathsJson argument.");
         if (!gameDeaths.ContainsKey(gameName)) gameDeaths.Add(gameName, 0);
-        gameDeaths[gameName]++;
+        
+        // Apply deaths
+        gameDeaths[gameName] += deathsToAdd;
         if (!TrySetGameDeaths(gameDeaths) ) return wrapper.SendFailureMessages("Could not set the gameDeathsJson argument.");
         int deaths = gameDeaths[gameName];
         wrapper.Cph.ObsSetGdiText("Game - Stream", "text-deaths", $"{deaths} Deaths");
