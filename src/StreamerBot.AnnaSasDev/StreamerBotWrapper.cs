@@ -19,6 +19,9 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
 
     private ObsSpecifiedService? _obsSpecifiedService;
     public ObsSpecifiedService ObsSpecifiedService => _obsSpecifiedService ??= new ObsSpecifiedService(this);
+    
+    private GameDeathsService? _gameDeathsService;
+    public GameDeathsService GameDeathsService => _gameDeathsService ??= new GameDeathsService(this);
 
     // -----------------------------------------------------------------------------------------------------------------
     // Code
@@ -140,7 +143,7 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
     }
     
     public bool TrySetGlobalVar<T>(string varName, T value) {
-        Cph.SetGlobalVar(varName, value, false);
+        Cph.SetGlobalVar(varName, value, true);
         return true;
     }
     public bool TrySetGlobalPersistedVar<T>(string varName, T value) {
