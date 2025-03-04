@@ -41,7 +41,7 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
     }
 
     public bool TryUpdateSubjectPanel() {
-        if (!wrapper.TryGetGlobalVar(ObjectSubjectTextVarName, out string? subjectText)) return wrapper.ErrorMessages.Add("Could not find the subject text");
+        if (!wrapper.TryGetGlobalVar(ObjectSubjectTextVarName, out string? subjectText)) return wrapper.SendFailureMessages("Could not find the subject text");
 
         wrapper.Cph.ObsSetGdiText("Backend-Overlay-Blank", "text-subject", subjectText);
         return true;
@@ -66,8 +66,8 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
     
     public bool TryUpdateFollowerGoalObsSources() {
         // Get values
-        if (!wrapper.TryGetGlobalNonPersistedVar("DailyFollowerValue", out long followerValue)) return wrapper.ErrorMessages.Add("Value could not be retrieved");
-        if (!wrapper.TryGetGlobalVar("DailyFollowerGoal", out long followerGoal)) return wrapper.ErrorMessages.Add("Goal could not be retrieved");
+        if (!wrapper.TryGetGlobalVar("DailyFollowerValue", out long followerValue)) return wrapper.SendFailureMessages("Value could not be retrieved");
+        if (!wrapper.TryGetGlobalVar("DailyFollowerGoal", out long followerGoal)) return wrapper.SendFailureMessages("Goal could not be retrieved");
 
         // Apply to OBS
         string followerGoalText = $"{followerValue}/{followerGoal}";

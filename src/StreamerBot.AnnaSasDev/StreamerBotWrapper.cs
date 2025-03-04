@@ -125,8 +125,8 @@ public class StreamerBotWrapper(IInlineInvokeProxy cph) {
         Cph.SetGlobalVar(varName, value, true);
         return true;
     }
-    public bool TrySetGlobalPersistedVar<T>(string varName, T value) {
-        Cph.SetGlobalVar(varName, value, true);
+    public bool TrySetGlobalNonPersistedVar<T>(string varName, T value) {
+        Cph.SetGlobalVar(varName, value, false);
         return true;
     }
     

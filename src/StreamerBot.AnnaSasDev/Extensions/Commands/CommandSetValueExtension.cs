@@ -20,14 +20,14 @@ public static class CommandSetValueExtension {
         switch (command.ToLowerInvariant(), argument.ToLowerInvariant()) {
             #region FollowerGoal
             case ("followergoal", "reset"): {
-                wrapper.TrySetGlobalPersistedVar("DailyFollowerGoal", FollowerGoalService.DefaultGoalAmount);
+                wrapper.TrySetGlobalVar("DailyFollowerGoal", FollowerGoalService.DefaultGoalAmount);
                 if (!wrapper.ObsSpecifiedService.TryUpdateFollowerGoalObsSources()) return wrapper.ErrorMessages.Add("Could not update the OBS source.");
 
                 break;
             }
 
             case ("followergoal", {} arg) when long.TryParse(arg, out long value): {
-                 wrapper.TrySetGlobalPersistedVar("DailyFollowerGoal", value);
+                 wrapper.TrySetGlobalVar("DailyFollowerGoal", value);
                 if (!wrapper.ObsSpecifiedService.TryUpdateFollowerGoalObsSources()) return wrapper.ErrorMessages.Add("Could not update the OBS source.");
 
                 break;

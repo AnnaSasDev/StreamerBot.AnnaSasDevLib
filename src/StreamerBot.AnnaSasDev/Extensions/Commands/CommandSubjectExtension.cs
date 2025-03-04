@@ -18,7 +18,7 @@ public static class CommandSubjectExtension {
             return wrapper.SendFailureMessages("Could not find the rawInput argument.");
 
         if (!string.IsNullOrWhiteSpace(rawInput))
-            wrapper.TrySetGlobalPersistedVar(ObsSpecifiedService.ObjectSubjectTextVarName, rawInput);
+            wrapper.TrySetGlobalVar(ObsSpecifiedService.ObjectSubjectTextVarName, rawInput);
 
         if (!wrapper.ObsSpecifiedService.TryUpdateSubjectPanel())
             return wrapper.SendFailureMessages("Could not update the OBS source.");
