@@ -19,7 +19,7 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
             return wrapper.SendFailureMessages("Could not find the follow value for triggerName");
         }
 
-        if (!wrapper.TryGetArg("userName", out string? followerName) || string.IsNullOrWhiteSpace(followerName)) {
+        if (!wrapper.TryGetArg("user", out string? followerName) || string.IsNullOrWhiteSpace(followerName)) {
             return wrapper.SendFailureMessages("Could not find the follower name");
         }
         
@@ -32,7 +32,7 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
             return wrapper.SendFailureMessages("Could not find the follow value for triggerName");
         }
 
-        if (!wrapper.TryGetArg("userName", out string? subscriberName) || string.IsNullOrWhiteSpace(subscriberName)) {
+        if (!wrapper.TryGetArg("user", out string? subscriberName) || string.IsNullOrWhiteSpace(subscriberName)) {
             return wrapper.SendFailureMessages("Could not find the follower name");
         }
 
@@ -73,6 +73,11 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
         string followerGoalText = $"{followerValue}/{followerGoal}";
         wrapper.TrySetGlobalVar("DailyFollowerText", followerGoalText);
         wrapper.Cph.ObsSetGdiText("Backend-Overlay-Blank", "FollowerGoal.Text", followerGoalText);
+        return true;
+    }
+
+    public bool TryToggleHexBlur() {
+        wrapper.Cph.ObsSetFilterState("Screen - Main", "Screen Main", "HexagonBlur", 2);
         return true;
     }
 }
