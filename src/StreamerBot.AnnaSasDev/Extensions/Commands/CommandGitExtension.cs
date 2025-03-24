@@ -81,6 +81,13 @@ public static class CommandGitExtension {
                 return wrapper.TrySendReply($"Anna uses Streamer.Bot for most of her twitch automation. This is extended by writing her own service library : {UrlStreamerBotAnnaSasDevLib}");
             }
             #endregion
+            
+            #region Colored Tags Wrangler
+            case "ctw":
+            case "colored-tags-wrangler": {
+                return wrapper.TrySendReply($"Anna made a plugin for Obsidian.md called 'Colored Tags Wrangler' which add fancy colors to your tags : {UrlColoredTagsWrangler}");
+            }
+            #endregion
 
             default: {
                 return wrapper.TrySendReply($"Anna does lots of chaotic coding projects, most can be found at {UrlOrgCodeOfChaos} or {UrlAnnaSasDev}.");
