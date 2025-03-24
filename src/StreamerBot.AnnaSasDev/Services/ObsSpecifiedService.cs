@@ -58,6 +58,11 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
             bool brbVisible = wrapper.Cph.ObsIsSourceVisible(scene, "brb");
             wrapper.Cph.ObsSetSourceVisibility(scene, "brb", !brbVisible);
         
+            if (wrapper.TryGetGlobalNonPersistedVar("IsCameraHidden", out bool isCameraHidden) && isCameraHidden) {
+                wrapper.Cph.ObsSetSourceVisibility(scene, "cam - Nvidea Broadcast", !isCameraHidden);
+                continue;
+            }
+
             bool cameraVisible = wrapper.Cph.ObsIsSourceVisible(scene, "cam - Nvidea Broadcast");
             wrapper.Cph.ObsSetSourceVisibility(scene, "cam - Nvidea Broadcast", !cameraVisible);
         }
@@ -80,4 +85,21 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
         wrapper.Cph.ObsSetFilterState("Screen - Main", "Screen Main", "HexagonBlur", 2);
         return true;
     }
+    
+    public bool TryToggleCamera() {
+        string? sceneName = wrapper.Cph.ObsGetCurrentScene();
+        if (sceneName is null) return wrapper.SendFailureMessages("Could not find the current scene");
+        
+        string[] possibleScenes = ["Screen - Main", "Game - Stream"];
+        if (!possibleScenes.Contains(sceneName)) return wrapper.SendFailureMessages("Could not toggle brb on the current scene");
+
+        bool? state = null;
+        foreach (string scene in possibleScenes) {
+            state ??= wrapper.Cph.ObsIsSourceVisible(scene, "cam - Nvidea Broadcast");
+            wrapper.Cph.ObsSetSourceVisibility(scene, "cam - Nvidea Broadcast", !state.Value);
+        }
+
+        wrapper.TrySetGlobalNonPersistedVar("IsCameraHidden", state);
+        return true;
+    } 
 }
