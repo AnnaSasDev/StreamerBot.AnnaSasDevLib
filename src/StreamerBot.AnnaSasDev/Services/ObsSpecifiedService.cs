@@ -71,7 +71,7 @@ public class ObsSpecifiedService(StreamerBotWrapper wrapper) {
     
     public bool TryUpdateFollowerGoalObsSources() {
         // Get values
-        if (!wrapper.TryGetGlobalVar("DailyFollowerValue", out long followerValue)) return wrapper.SendFailureMessages("Value could not be retrieved");
+        if (!wrapper.TryGetGlobalNonPersistedVar("DailyFollowerValue", out long followerValue)) return wrapper.SendFailureMessages("Value could not be retrieved");
         if (!wrapper.TryGetGlobalVar("DailyFollowerGoal", out long followerGoal)) return wrapper.SendFailureMessages("Goal could not be retrieved");
 
         // Apply to OBS

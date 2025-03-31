@@ -15,11 +15,11 @@ public class FollowerGoalService(StreamerBotWrapper wrapper) {
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
     public bool UpdateFollowerGoal() {
-        wrapper.TryGetGlobalVar("DailyFollowerValue", out long followerValue);// if it doesn't exist, it'll be 0
+        wrapper.TryGetGlobalNonPersistedVar("DailyFollowerValue", out long followerValue);// if it doesn't exist, it'll be 0
         followerValue += 1;
 
         // Set the value
-        wrapper.TrySetGlobalVar("DailyFollowerValue", followerValue);
+        wrapper.TrySetGlobalNonPersistedVar("DailyFollowerValue", followerValue);
         if (!wrapper.ObsSpecifiedService.TryUpdateFollowerGoalObsSources()) return wrapper.SendFailureMessages("Could not update the OBS goal source.");
         if (!wrapper.ObsSpecifiedService.TryUpdateFollowerPanel()) return wrapper.SendFailureMessages("Could not update the OBS text source.");
         return true;
