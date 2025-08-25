@@ -1,2 +1,22 @@
-﻿{
-}
+﻿[
+  {
+    "aliases": ["aterraengine", "aterra-engine", "aterra", "ateraengine", "atera-engine", "atera"],
+    "message": "Anna is developing her own Game Engine called AterraEngine. It is still in very early development and is not ready for public use yet, but if you want to follow the development, you can follow the repository here: https://github.com/AterraEngine"
+  },
+  {
+    "aliases": ["infinilore"],
+    "message": "Anna is developing a content -and writing management application that will help her write better, as in manage world building, track relations between characters, etc... You can follow the development here: https://github.com/Infinilore"
+  },
+  {
+    "aliases": ["infiniblazor", "infini-blazor"],
+    "message": "Anna is developing a Blazor library for InfiniLore, which will help her create a better user experience for her users. You can follow the development here: https://github.com/InfiniBlazor"
+  },
+  {
+    "aliases": ["codeofchaos", "code-of-chaos", "coc"],
+    "message": "Anna has a multitude of random projects, all of these are compiled into the \"Code Of Chaos\", which can be found here: https://github.com/code-of-chaos "
+  },
+  {
+    "aliases": ["coloredtagswrangler", "colored-tags-wrangler", "ctw"],
+    "message": "Anna made a plugin for Obsidian.md called 'Colored Tags Wrangler' which add fancy colors to your tags, which can be found here: https://github.com/code-of-chaos/obsidian-colored_tags_wrangler"
+  }
+]

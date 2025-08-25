@@ -31,6 +31,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include=".assets\gitActionExtensionData.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
         <!-- List of DLLs included with Streamer.bot, do not copy to output -->
 <!--        <Reference Include="$(StreamerBotPath)Google.Protobuf.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)Grpc.Core.Api.dll" Private="False"/>-->
@@ -145,12 +151,6 @@
 <!--        <Reference Include="$(StreamerBotPath)CommunityToolkit.Mvvm.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)DerConverter.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)GongSolutions.WPF.DragDrop.dll" Private="False"/>-->
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include=".assets\gitActionExtensionData.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
 
 </Project>
