@@ -1,5 +1,20 @@
 {
-  "sceneNames" : ["backend-overlay-panels1"],
+  "sceneNames" : [
+    "scene-main",
+    "scene-game",
+    "scene-camSolo",
+    "scene-start",
+    "scene-end",
+    "backend-overlay-panels1",
+    "backend-overlay-panels2",
+    "backend-overlay-ads",
+    "backend-overlay-duckOfDoom",
+    "backend-panels-newFollower",
+    "backend-panels-newSubscriber",
+    "backend-panels-goals",
+    "backend-panels-subject",
+    "backend-panels-kofi"
+  ],
   "sourceReferences" : {
     "panelSubjectText" : {
       "scene" : "backend-overlay-panels1",
