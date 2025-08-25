@@ -23,8 +23,24 @@
   ],
   "sourceReferences" : {
     "panelSubjectText" : {
-      "scene" : "backend-overlay-panels1",
+      "scene" : "backend-panels-subject",
       "source" : "text-subject"
+    },
+    "panelGoals" : {
+      "scene" : "backend-overlay-panels",
+      "source" : "backend-panels-goals"
+    },
+    "panelKofi" : {
+      "scene" : "backend-overlay-panels",
+      "source" : "backend-panels-kofi"
+    },
+    "assetScreenMain" : {
+      "scene" : "scene-main",
+      "source" : "asset-screen-main"
+    },
+    "camera" : {
+      "scene" : "backend-overlay-camera",
+      "source" : "asset-camera-nvidiaBroadcast"
     }
   }
 }
