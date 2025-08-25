@@ -4,6 +4,7 @@
         <TargetFramework>net481</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
+        <RootNamespace>StreamerBot.AnnaSasDev</RootNamespace>
 
         <!-- Variables to be set by the developer using this library during development -->
         <StreamerBotPath>D:\Dev\bots\Streamer.bot-x64-0.2.4\</StreamerBotPath>

@@ -3,7 +3,6 @@
 // ---------------------------------------------------------------------------------------------------------------------
 using Streamer.bot.Plugin.Interface;
 
-// ReSharper disable once CheckNamespace
 namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
@@ -11,6 +10,7 @@ namespace StreamerBot.AnnaSasDev;
 public interface IStreamerBotUtilities {
     IInlineInvokeProxy InlineInvokeProxy { get; }
     
-    IArgumentUtilities ArgumentUtilities { get; }
-    IMessageUtilities MessageUtilities { get; }
+    IArgumentUtilities Arguments { get; }
+    IMessageUtilities Messages { get; }
+    IChatInputUtilities ChatInput { get; }
 }

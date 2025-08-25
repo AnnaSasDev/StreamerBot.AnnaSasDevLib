@@ -1,12 +1,13 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
+using System.Diagnostics.CodeAnalysis;
 
 namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public interface IMessageUtilities { 
-    bool TrySendMessage(string message, MessageTarget target); 
-    bool TrySendMessageContextAware(string message);
+public interface IChatInputUtilities {
+    bool TryParseUserInputToActionVariables();
+    bool TryParseUserInput([NotNullWhen(true)] out IEnumerable<string>? parsedInput);
 }

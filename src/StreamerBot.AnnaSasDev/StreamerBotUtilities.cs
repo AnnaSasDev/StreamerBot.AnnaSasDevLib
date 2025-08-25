@@ -2,7 +2,6 @@
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
 using Streamer.bot.Plugin.Interface;
-using StreamerBot.AnnaSasDev.Shared;
 using StreamerBot.AnnaSasDev.Utilities;
 
 namespace StreamerBot.AnnaSasDev;
@@ -12,8 +11,9 @@ namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 public sealed class StreamerBotUtilities : IStreamerBotUtilities {
     public IInlineInvokeProxy InlineInvokeProxy { get; private init; } = null!;
-    public IArgumentUtilities ArgumentUtilities { get; private set; } = null!;
-    public IMessageUtilities MessageUtilities { get; private set; } = null!;
+    public IArgumentUtilities Arguments { get; private set; } = null!;
+    public IMessageUtilities Messages { get; private set; } = null!;
+    public IChatInputUtilities ChatInput { get; private set; } = null!;
 
     // -----------------------------------------------------------------------------------------------------------------
     // Constructors
@@ -23,8 +23,9 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
             InlineInvokeProxy = cph
         };
         
-        streamerBotUtilities.ArgumentUtilities = new ArgumentUtilities(streamerBotUtilities);
-        streamerBotUtilities.MessageUtilities = new MessageUtilities(streamerBotUtilities);
+        streamerBotUtilities.Arguments = new ArgumentUtilities(streamerBotUtilities);
+        streamerBotUtilities.Messages = new MessageUtilities(streamerBotUtilities);
+        streamerBotUtilities.ChatInput = new ChatInputUtilities(streamerBotUtilities);
         
         return streamerBotUtilities;
     }
@@ -38,7 +39,7 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
         }
         catch (Exception e) {
             var exceptionString = e.ToString();
-            ArgumentUtilities.TrySetActionArg(StreamerBotUtilitiesArguments.Exceptions, exceptionString);
+            Arguments.TrySetActionArg(StreamerBotUtilitiesArguments.Exceptions, exceptionString);
             InlineInvokeProxy.LogError(exceptionString);
             return false;
         }
