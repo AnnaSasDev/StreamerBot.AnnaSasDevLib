@@ -8,6 +8,7 @@ namespace StreamerBot.AnnaSasDev.Services;
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 public static class FollowUpdater {
+    // ReSharper disable once InvertIf
     public static bool UpdateGlobalFollowerGoal(IStreamerBotUtilities utilities) {
         if (!utilities.Arguments.TryGetActionArg(ActionArguments.FollowerCount, out long followCount)) throw new Exception("Could not find follower count");
         utilities.Arguments.TryGetGlobalArg(ActionArguments.GlobalFollowerGoal, out long followerGoal);
@@ -19,6 +20,7 @@ public static class FollowUpdater {
         return utilities.Obs.TryUpdateTextSource(SourceReferenceId.TextGoalFollower, $"Followers\n{followCount}/{followerGoal}");
     }
     
+    // ReSharper disable once InvertIf
     public static bool UpdateDailyFollowerGoal(IStreamerBotUtilities utilities, int specificCount = -1) {
         long followerDailyCurrent;
         if (specificCount != -1) followerDailyCurrent = 0;
