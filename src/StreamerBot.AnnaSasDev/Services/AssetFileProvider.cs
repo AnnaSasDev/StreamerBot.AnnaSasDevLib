@@ -35,7 +35,7 @@ public static class AssetFileProvider {
     public static bool TryParseJsonAssetFile<T>(string fileName, [NotNullWhen(true)] out T? data) {
         data = default;
 
-        var fullPath = Path.Combine(AssetFolderPath, fileName);
+        string fullPath = Path.Combine(AssetFolderPath, fileName);
         if (!File.Exists(fullPath)) return false;
 
         try {
@@ -54,7 +54,7 @@ public static class AssetFileProvider {
 
         try {
             using var sha256 = SHA256.Create();
-            using var stream = File.OpenRead(fullPath);
+            using FileStream stream = File.OpenRead(fullPath);
             byte[] hashBytes = sha256.ComputeHash(stream);
             hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
             return !string.IsNullOrWhiteSpace(hash);
@@ -62,5 +62,21 @@ public static class AssetFileProvider {
         catch (Exception) {
             return false;
         }
+    }
+    
+    public static bool TrySaveAssetFile(string fileName, string fileContents) {
+        string fullPath = Path.Combine(AssetFolderPath, fileName);
+        try {
+            File.WriteAllText(fullPath, fileContents);
+            return true;
+        }
+        catch (Exception) {
+            return false;
+        }
+    }
+    
+    public static bool TrySaveJsonAssetFile<T>(string fileName, T data) {
+        string json = JsonSerializer.Serialize(data, JsonOptions);
+        return TrySaveAssetFile(fileName, json);
     }
 }
