@@ -5,21 +5,15 @@ namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public class ErrorMessageService {
-    private readonly Queue<string> _errorMessages = new();
+public static class GitActionExtension {
+    private const string DataFileName = "gitActionExtensionData.json";
 
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public bool Add(string errorMessage) {
-        _errorMessages.Enqueue(errorMessage);
+    public static bool ExecuteGitActionCommand(this IStreamerBotUtilities utilities) {
+        if (!utilities.ChatInput.TryParseUserInput(out var input)) throw new Exception("Could not parse user input");
+        
         return false;
-    }
-    public bool TryGet(out string? errorMessage) {
-        errorMessage = null;
-        if (_errorMessages.Count == 0) return false;
-
-        errorMessage = _errorMessages.Dequeue();
-        return true;
     }
 }

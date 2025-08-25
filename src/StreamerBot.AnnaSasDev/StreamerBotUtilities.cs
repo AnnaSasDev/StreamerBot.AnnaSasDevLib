@@ -29,11 +29,16 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
         
         return streamerBotUtilities;
     }
+    
+    public static bool WithExceptionHandling(IInlineInvokeProxy cph, Func<StreamerBotUtilities, bool> func) {
+        StreamerBotUtilities streamerBotUtilities = FromCPH(cph);
+        return streamerBotUtilities.WithExceptionHandling(func);
+    }
 
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public bool WithExceptionHandling(Func<StreamerBotUtilities, bool> func) {
+    private bool WithExceptionHandling(Func<StreamerBotUtilities, bool> func) {
         try {
             return func(this);
         }
@@ -42,9 +47,6 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
             Arguments.TrySetActionArg(StreamerBotUtilitiesArguments.Exceptions, exceptionString);
             InlineInvokeProxy.LogError(exceptionString);
             return false;
-        }
-        finally {
-            
         }
     }
 }
