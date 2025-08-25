@@ -1,11 +1,17 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
+
+using StreamerBot.AnnaSasDev.Services;
+
 namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public static class GlobalArguments {
-    public const string Something = nameof(GlobalArguments) + nameof(Something);
+// ReSharper disable once UnusedType.Global
+public static class OnStreamStartActionExtension {
+    // ReSharper disable once UnusedMember.Global
+    public static bool ExecuteOnStreamStart(this IStreamerBotUtilities utilities)
+        => FollowUpdater.UpdateDailyFollowerGoal(utilities, 0) 
+           && FollowUpdater.UpdateGlobalFollowerGoal(utilities);
 }
-

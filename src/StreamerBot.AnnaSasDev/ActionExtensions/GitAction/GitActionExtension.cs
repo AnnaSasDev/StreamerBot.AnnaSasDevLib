@@ -23,6 +23,7 @@ public static class GitActionExtension {
         string? aliasArgument = input.FirstOrDefault()?.ToLowerInvariant();
         if (aliasArgument is null) return utilities.Messages.TrySendMessageContextAware(DefaultGitMessage);
         GitActionData? gitData = data.FirstOrDefault(d => d.Aliases.Contains(aliasArgument));
+        
         return utilities.Messages.TrySendMessageContextAware(gitData is null 
             ? $"A project by the name of '{aliasArgument}' could not be found. {DefaultGitMessage}" 
             : gitData.Message

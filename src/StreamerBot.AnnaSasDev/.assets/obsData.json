@@ -41,6 +41,18 @@
     "camera" : {
       "scene" : "backend-overlay-camera",
       "source" : "asset-camera-nvidiaBroadcast"
+    },
+    "textGoalFollower" : {
+      "scene" : "backend-panels-goals",
+      "source" : "text-goal-follower"
+    },
+    "textGoalSubscriber" : {
+      "scene" : "backend-panels-goals",
+      "source" : "text-goal-follower"
+    },
+    "textFollowerGoalDaily" : {
+      "scene" : "backend-panels-newFollower",
+      "source" : "FollowerGoal.Text"
     }
   }
 }
