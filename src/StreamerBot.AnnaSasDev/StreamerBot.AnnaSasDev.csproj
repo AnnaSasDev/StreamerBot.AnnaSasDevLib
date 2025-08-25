@@ -34,6 +34,7 @@
         <Content Include=".assets\gitActionExtensionData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include=".assets\obsData.json" />
     </ItemGroup>
 
     <ItemGroup>

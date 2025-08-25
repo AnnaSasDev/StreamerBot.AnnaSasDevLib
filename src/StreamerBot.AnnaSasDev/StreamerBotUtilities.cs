@@ -14,6 +14,7 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
     public IArgumentUtilities Arguments { get; private set; } = null!;
     public IMessageUtilities Messages { get; private set; } = null!;
     public IChatInputUtilities ChatInput { get; private set; } = null!;
+    public IObsUtilities Obs { get; private set; } = null!;
 
     // -----------------------------------------------------------------------------------------------------------------
     // Constructors
@@ -26,6 +27,7 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
         streamerBotUtilities.Arguments = new ArgumentUtilities(streamerBotUtilities);
         streamerBotUtilities.Messages = new MessageUtilities(streamerBotUtilities);
         streamerBotUtilities.ChatInput = new ChatInputUtilities(streamerBotUtilities);
+        streamerBotUtilities.Obs = new ObsUtilities(streamerBotUtilities);
         
         return streamerBotUtilities;
     }

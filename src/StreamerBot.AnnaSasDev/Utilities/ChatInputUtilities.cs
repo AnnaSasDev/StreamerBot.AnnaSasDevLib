@@ -13,9 +13,13 @@ public class ChatInputUtilities(IStreamerBotUtilities utilities) : IChatInputUti
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
+    public bool TryGetUserInput([NotNullWhen(true)] out string? input) {
+        return utilities.Arguments.TryGetActionArg(ActionArguments.RawInput, out input);
+    }
+
     public bool TryParseUserInputToActionVariables() => TryParseUserInput(out _);
     public bool TryParseUserInput([NotNullWhen(true)] out IEnumerable<string>? parsedInput) {
-        if (!utilities.Arguments.TryGetActionArg(ActionArguments.RawInput, out string? rawInput)) {
+        if (!TryGetUserInput(out string? rawInput)) {
             parsedInput = null;
             return false;
         }
