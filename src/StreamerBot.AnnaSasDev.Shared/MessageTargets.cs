@@ -24,8 +24,8 @@ public static class MessageTargetUtilities {
     public static bool IsYoutube(this MessageTarget target) => target == MessageTarget.Youtube;
 
     public static string ToStreamerBotMessageSource(this MessageTarget target) => target switch {
-        MessageTarget.Twitch => "twitch",
-        MessageTarget.Youtube => "youtube",
+        MessageTarget.Twitch => SourceTwitch,
+        MessageTarget.Youtube => SourceYoutube,
         MessageTarget.Unknown => throw new ArgumentOutOfRangeException(nameof(target), target, null),
         _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
     };
@@ -35,8 +35,8 @@ public static class MessageTargetUtilities {
         if (value is null) return false;
 
         target = value.ToLowerInvariant() switch {
-            "twitch" => MessageTarget.Twitch,
-            "youtube" => MessageTarget.Youtube,
+            SourceTwitch => MessageTarget.Twitch,
+            SourceYoutube => MessageTarget.Youtube,
             _ => MessageTarget.Unknown
         };
         return target != MessageTarget.Unknown;

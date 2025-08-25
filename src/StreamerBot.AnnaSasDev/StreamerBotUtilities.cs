@@ -11,7 +11,7 @@ namespace StreamerBot.AnnaSasDev;
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 public sealed class StreamerBotUtilities : IStreamerBotUtilities {
-    public required IInlineInvokeProxy InlineInvokeProxy { get; init; }
+    public IInlineInvokeProxy InlineInvokeProxy { get; private init; } = null!;
     public IArgumentUtilities ArgumentUtilities { get; private set; } = null!;
     public IMessageUtilities MessageUtilities { get; private set; } = null!;
 
