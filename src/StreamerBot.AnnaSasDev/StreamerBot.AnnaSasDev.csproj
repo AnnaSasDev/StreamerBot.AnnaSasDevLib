@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net472</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
 
@@ -14,6 +14,21 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="IsExternalInit" Version="1.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Nullable" Version="1.3.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\StreamerBot.AnnaSasDev.Shared\StreamerBot.AnnaSasDev.Shared.csproj" />
+    </ItemGroup>
         
     <ItemGroup>
         <!-- List of DLLs included with Streamer.bot, do not copy to output -->
@@ -131,13 +146,6 @@
         <Reference Include="$(StreamerBotPath)CommunityToolkit.Mvvm.dll" Private="False"/>
         <Reference Include="$(StreamerBotPath)DerConverter.dll" Private="False"/>
         <Reference Include="$(StreamerBotPath)GongSolutions.WPF.DragDrop.dll" Private="False"/>
-    </ItemGroup>
-        
-    <ItemGroup>
-      <PackageReference Include="Nullable" Version="1.3.1">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
     </ItemGroup>
 
 </Project>

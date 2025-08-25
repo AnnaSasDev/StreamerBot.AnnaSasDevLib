@@ -4,6 +4,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7CF48305-3D3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamerBot.AnnaSasDev", "src\StreamerBot.AnnaSasDev\StreamerBot.AnnaSasDev.csproj", "{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamerBot.AnnaSasDev.Shared", "src\StreamerBot.AnnaSasDev.Shared\StreamerBot.AnnaSasDev.Shared.csproj", "{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,8 +16,13 @@ Global
 		{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04DE764C-A76D-4C29-A8C9-1A6F15A0F563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{04DE764C-A76D-4C29-A8C9-1A6F15A0F563} = {7CF48305-3D38-4DDC-AA69-0FF802176949}
+		{8CF14D4E-6F16-4EF9-B420-3A08F8D6D020} = {7CF48305-3D38-4DDC-AA69-0FF802176949}
 	EndGlobalSection
 EndGlobal
