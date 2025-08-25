@@ -17,6 +17,6 @@ public static class SetSubjectActionExtension {
         if (!utilities.ChatInput.TryGetUserInput(out string? input)) throw new Exception("Could not parse user input");
         if (string.IsNullOrWhiteSpace(input)) throw new Exception("Could not find the input argument.");
         if (!utilities.Obs.TryGetSourceReference(SourceReferenceId, out string? sceneName, out string? sourceName)) throw new Exception("Could not find the source reference.");
-        return utilities.Obs.TryUpdateTextSource(sceneName, sourceName, input!);
+        return utilities.Obs.TryUpdateTextSource(sceneName, sourceName, input);
     }
 }

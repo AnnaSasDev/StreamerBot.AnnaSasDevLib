@@ -1,5 +1,5 @@
 {
-  "sceneNames" : [],
+  "sceneNames" : ["backend-overlay-panels1"],
   "sourceReferences" : {
     "panelSubjectText" : {
       "scene" : "backend-overlay-panels1",
