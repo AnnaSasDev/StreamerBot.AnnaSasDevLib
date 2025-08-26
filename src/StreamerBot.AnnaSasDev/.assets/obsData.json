@@ -61,6 +61,10 @@
     "textSubscriber" : {
       "scene" : "backend-panels-newFollower",
       "source" : "text-subscriber"
+    },    
+    "assetBrb" : {
+      "scene" : "backend-overlay-brb",
+      "source" : "asset-brb"
     }
   }
 }

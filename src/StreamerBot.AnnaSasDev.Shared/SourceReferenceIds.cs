@@ -16,6 +16,7 @@ public enum SourceReferenceId {
     TextFollowerGoalDaily,
     TextFollower,
     TextSubscriber,
+    AssetBrb,
 }
 
 public static class SourceReferenceIdUtilities {
@@ -30,6 +31,7 @@ public static class SourceReferenceIdUtilities {
         SourceReferenceId.TextFollowerGoalDaily => "textFollowerGoalDaily",
         SourceReferenceId.TextFollower => "textFollower",
         SourceReferenceId.TextSubscriber => "textSubscriber",
+        SourceReferenceId.AssetBrb => "assetBrb",
         _ => throw new ArgumentOutOfRangeException(nameof(sourceReferenceId), sourceReferenceId, null)
     };
 }
