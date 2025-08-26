@@ -8,14 +8,14 @@ namespace StreamerBot.AnnaSasDev;
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 // ReSharper disable once UnusedType.Global
-public static class FollowAgeActionExtension {
+public static class OnFollowAgeActionExtension {
     // ReSharper disable once UnusedMember.Global
     public static bool ExecuteFollowAgeActionCommand(this IStreamerBotUtilities utilities) {
         if (!utilities.Arguments.TryGetActionArg(ActionArguments.BroadcastUser, out string? broadcaster)) throw new Exception("Could not find broadcast user");
         if (!utilities.ChatInput.TryParseUserInput(out var input)) throw new Exception("Could not parse user input");
         
         string? targetUserName = input.FirstOrDefault();
-        utilities.Arguments.TryGetActionArg(ActionArguments.UserName, out string? invokedUserName);
+        utilities.Arguments.TryGetActionArg(ActionArguments.User, out string? invokedUserName);
         string target = targetUserName ?? invokedUserName ?? string.Empty;
         
         if (string.IsNullOrWhiteSpace(target)) {

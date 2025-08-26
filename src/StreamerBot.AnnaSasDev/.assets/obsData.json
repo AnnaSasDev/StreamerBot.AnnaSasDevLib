@@ -48,11 +48,19 @@
     },
     "textGoalSubscriber" : {
       "scene" : "backend-panels-goals",
-      "source" : "text-goal-follower"
+      "source" : "text-goal-subscriber"
     },
     "textFollowerGoalDaily" : {
       "scene" : "backend-panels-newFollower",
       "source" : "FollowerGoal.Text"
+    },
+    "textFollower" : {
+      "scene" : "backend-panels-newFollower",
+      "source" : "text-follower"
+    },    
+    "textSubscriber" : {
+      "scene" : "backend-panels-newFollower",
+      "source" : "text-subscriber"
     }
   }
 }

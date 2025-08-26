@@ -13,11 +13,13 @@ public static class ActionArguments {
     
     public const string MsgId = "msgId";
     public const string RawInput = "rawInput";
+    public const string User = "user";
     public const string UserName = "userName";
     public const string BroadcastUser = "broadcastUser";
     public const string IsFollowing = "isFollowing";
     public const string FollowAgeLong = "followAgeLong";
     public const string FollowerCount = "followerCount";
+    public const string SubscriberCount = "subscriberCount";
     
     private const string StreamerBotUtilities = nameof(StreamerBotUtilities);
     private const string Global = nameof(Global);
@@ -30,4 +32,6 @@ public static class ActionArguments {
     public const string GlobalFollowerGoal = Global + StreamerBotUtilities + nameof(GlobalFollowerGoal);
     public const string GlobalFollowerDailyCurrent = Global + StreamerBotUtilities + nameof(GlobalFollowerDailyCurrent);
     public const string GlobalFollowerDailyGoal = Global + StreamerBotUtilities + nameof(GlobalFollowerDailyGoal);
+    
+    public const string GlobalSubscriberGoal = Global + StreamerBotUtilities + nameof(GlobalSubscriberGoal);
 }

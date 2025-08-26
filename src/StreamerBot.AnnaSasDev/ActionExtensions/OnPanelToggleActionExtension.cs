@@ -1,19 +1,14 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-
-using StreamerBot.AnnaSasDev.Services;
-
 namespace StreamerBot.AnnaSasDev;
-
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 // ReSharper disable once UnusedType.Global
-public static class OnTwitchFollowActionExtension {
+public class OnTogglePanelsActionExtension {
     // ReSharper disable once UnusedMember.Global
-    public static bool ExecuteOnTwitchFollow(this IStreamerBotUtilities utilities)
-        => FollowUpdater.UpdateDailyFollowerGoal(utilities)
-           && FollowUpdater.UpdateGlobalFollowerGoal(utilities)
-           && FollowUpdater.UpdateNewFollowerText(utilities);
+    public static bool ExecuteOnTogglePanels(IStreamerBotUtilities utilities)
+        => utilities.Obs.TryToggleVisibility(SourceReferenceId.PanelGoals)
+           && utilities.Obs.TryToggleVisibility(SourceReferenceId.PanelKofi);
 }

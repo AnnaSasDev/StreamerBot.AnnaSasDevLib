@@ -8,6 +8,12 @@ namespace StreamerBot.AnnaSasDev.Services;
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 public static class FollowUpdater {
+    // ReSharper disable once ConvertIfStatementToReturnStatement
+    public static bool UpdateNewFollowerText(IStreamerBotUtilities utilities) {
+        if (!utilities.Arguments.TryGetActionArg(ActionArguments.User, out string? userName)) throw new Exception("Could not find user name");
+        return utilities.Obs.TryUpdateTextSource(SourceReferenceId.TextFollower, userName);
+    }
+    
     // ReSharper disable once InvertIf
     public static bool UpdateGlobalFollowerGoal(IStreamerBotUtilities utilities) {
         if (!utilities.Arguments.TryGetActionArg(ActionArguments.FollowerCount, out long followCount)) throw new Exception("Could not find follower count");
