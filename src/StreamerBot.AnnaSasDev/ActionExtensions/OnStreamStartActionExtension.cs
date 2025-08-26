@@ -13,5 +13,6 @@ public static class OnStreamStartActionExtension {
     // ReSharper disable once UnusedMember.Global
     public static bool ExecuteOnStreamStart(this IStreamerBotUtilities utilities)
         => FollowUpdater.UpdateDailyFollowerGoal(utilities, 0) 
-           && FollowUpdater.UpdateGlobalFollowerGoal(utilities);
+           && FollowUpdater.UpdateGlobalFollowerGoal(utilities)
+           && SubscriberUpdater.UpdateGlobalSubscriberGoal(utilities);
 }
