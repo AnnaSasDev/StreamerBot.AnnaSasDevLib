@@ -6,7 +6,7 @@
       "soundId" : "newFollower"
     },
     "newSubscriber" : {
-      "messageTemplate": "{user}\n Just Became a {tier} Subscriber!",
+      "messageTemplate": "{user}\n is a {tier} Subscriber!",
       "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-floater-512.png",
       "soundId" : "newFollower"
     }

@@ -51,7 +51,7 @@ public class ObsUtilities(IStreamerBotUtilities utilities, ILoggingProvider logg
     
     public bool TrySetVisibility(SourceReferenceId referenceId, bool visible)
         => TryGetSourceReference(referenceId, out string? sceneName, out string? sourceName)
-           && TryToggleVisibility(sceneName, sourceName);
+           && TrySetVisibility(sceneName, sourceName, visible);
 
     public bool TrySetVisibility(string sceneName, string sourceName, bool visible) {
         if (!TryVerifySceneName(sceneName)) return false;
