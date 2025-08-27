@@ -1,19 +1,18 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-using Streamer.bot.Plugin.Interface;
 
-namespace StreamerBot.AnnaSasDev;
+using System.Text.Json.Serialization;
+using JetBrains.Annotations;
+
+namespace StreamerBot.AnnaSasDev.Utilities;
+
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public interface IStreamerBotUtilities {
-    IInlineInvokeProxy InlineInvokeProxy { get; }
-    
-    IArgumentUtilities Arguments { get; }
-    IMessageUtilities Messages { get; }
-    IChatInputUtilities ChatInput { get; }
-    IObsUtilities Obs { get; }
-    ISoundUtilities Sound { get; }
-    INotificationUtilities Notification { get; }
+// ReSharper disable once CollectionNeverUpdated.Global
+// ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+[UsedImplicitly]
+public class NotificationData {
+    [JsonPropertyName("templates")] public Dictionary<string, NotificationTemplate> Templates { get; set; } = new();
 }

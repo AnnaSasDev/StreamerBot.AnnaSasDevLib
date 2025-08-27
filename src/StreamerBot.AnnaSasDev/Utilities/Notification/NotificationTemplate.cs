@@ -1,19 +1,16 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-using Streamer.bot.Plugin.Interface;
+using System.Text.Json.Serialization;
+using JetBrains.Annotations;
 
-namespace StreamerBot.AnnaSasDev;
+namespace StreamerBot.AnnaSasDev.Utilities;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-public interface IStreamerBotUtilities {
-    IInlineInvokeProxy InlineInvokeProxy { get; }
-    
-    IArgumentUtilities Arguments { get; }
-    IMessageUtilities Messages { get; }
-    IChatInputUtilities ChatInput { get; }
-    IObsUtilities Obs { get; }
-    ISoundUtilities Sound { get; }
-    INotificationUtilities Notification { get; }
+[UsedImplicitly]
+public class NotificationTemplate {
+    [JsonPropertyName("messageTemplate")] public string Text { get; set; } = string.Empty;
+    [JsonPropertyName("variableDuckyFileName")] public string VariableDuckyFileName { get; set; } = string.Empty;
+    [JsonPropertyName("soundId")] public string SoundId { get; set; } = string.Empty;
 }

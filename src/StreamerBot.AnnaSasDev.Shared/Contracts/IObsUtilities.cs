@@ -20,4 +20,7 @@ public interface IObsUtilities {
 
     bool TryToggleVisibility(SourceReferenceId referenceId);
     bool TryToggleVisibility(string sceneName, string sourceName);
+    
+    bool TrySetImageSource(SourceReferenceId notificationDucky, string imageFilePath);
+    bool TrySetImageSource(string sceneName, string sourceName, string imageFilePath);
 }

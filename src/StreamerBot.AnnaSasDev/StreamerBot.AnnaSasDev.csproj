@@ -42,6 +42,9 @@
         <Content Include=".assets\gitActionExtensionData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include=".assets\notificationData.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
         <Content Include=".assets\obsData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
@@ -165,10 +168,6 @@
 <!--        <Reference Include="$(StreamerBotPath)CommunityToolkit.Mvvm.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)DerConverter.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)GongSolutions.WPF.DragDrop.dll" Private="False"/>-->
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Utilities\Logging\" />
     </ItemGroup>
 
 </Project>

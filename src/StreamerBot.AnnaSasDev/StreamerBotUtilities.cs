@@ -17,7 +17,9 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
     public IChatInputUtilities ChatInput { get; private set; } = null!;
     public IObsUtilities Obs { get; private set; } = null!;
     public ISoundUtilities Sound { get; private set; } = null!;
+    // ReSharper disable once PropertyCanBeMadeInitOnly.Local
     public ILoggingProvider Logging { get; private set; } = null!;
+    public INotificationUtilities Notification { get; private set; } = null!;
 
     // -----------------------------------------------------------------------------------------------------------------
     // Constructors
@@ -32,8 +34,9 @@ public sealed class StreamerBotUtilities : IStreamerBotUtilities {
         streamerBotUtilities.Arguments = new ArgumentUtilities(streamerBotUtilities);
         streamerBotUtilities.Messages = new MessageUtilities(streamerBotUtilities);
         streamerBotUtilities.ChatInput = new ChatInputUtilities(streamerBotUtilities);
-        streamerBotUtilities.Obs = new ObsUtilities(streamerBotUtilities);
+        streamerBotUtilities.Obs = new ObsUtilities(streamerBotUtilities, new LoggingProvider<ObsUtilities>());
         streamerBotUtilities.Sound = new SoundUtilities(streamerBotUtilities, new LoggingProvider<SoundUtilities>());
+        streamerBotUtilities.Notification = new NotificationUtilities(streamerBotUtilities, new LoggingProvider<SoundUtilities>());
         
         return streamerBotUtilities;
     }

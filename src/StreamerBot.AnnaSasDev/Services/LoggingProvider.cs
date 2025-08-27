@@ -83,7 +83,7 @@ public class LoggingProvider<T> : ILoggingProvider {
 
     private static bool WriteLogEntry(string level, string message) {
         var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-        var logEntry = $"[{timestamp} | {nameof(T)} | {level}] {message}";
+        var logEntry = $"[{timestamp} | {typeof(T).Name} | {level}] {message}";
         return AssetFileProvider.TryWriteLineToAssetFile(LogFileName, logEntry);
     }
 }

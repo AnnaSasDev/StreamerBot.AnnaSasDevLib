@@ -6,6 +6,7 @@
     "scene-start",
     "scene-end",
     
+    "backend-overlay-notification",
     "backend-overlay-camera",
     "backend-overlay-brb",
     "backend-overlay-bushes",
@@ -65,6 +66,18 @@
     "assetBrb" : {
       "scene" : "backend-overlay-brb",
       "source" : "asset-brb"
+    },
+    "notification" : {
+      "scene" : "backend-overlay-notification",
+      "source" : "notification"
+    },
+    "notificationText" : {
+      "scene" : "backend-overlay-notification",
+      "source" : "text-notification"
+    },
+    "notificationDucky" : {
+      "scene" : "backend-overlay-notification",
+      "source" : "asset-duckyVariable"
     }
   }
 }

@@ -11,9 +11,15 @@ namespace StreamerBot.AnnaSasDev;
 // ReSharper disable once UnusedType.Global
 public static class OnTwitchFollowActionExtension {
     // ReSharper disable once UnusedMember.Global
-    public static bool ExecuteOnTwitchFollow(this IStreamerBotUtilities utilities)
-        => FollowUpdater.UpdateDailyFollowerGoal(utilities)
-           && FollowUpdater.UpdateGlobalFollowerGoal(utilities)
-           && FollowUpdater.UpdateNewFollowerText(utilities)
-           && utilities.Sound.TryPlaySound(SoundIds.NewFollower);
+    public static bool ExecuteOnTwitchFollow(this IStreamerBotUtilities utilities) {
+        if (!FollowUpdater.UpdateDailyFollowerGoal(utilities)) return false;
+        if (!FollowUpdater.UpdateGlobalFollowerGoal(utilities)) return false;
+        if (!FollowUpdater.UpdateNewFollowerText(utilities)) return false;
+        
+        if (!utilities.Notification.TryPublishNotification("newFollower")) return false;
+        if (!utilities.Sound.TryPlaySound(SoundIds.NewFollower)) return false;
+        if (!utilities.Notification.TryUnPublishNotification()) return false;
+        
+        return true;
+    }
 }

@@ -1,0 +1,14 @@
+﻿{
+  "templates" : {
+    "newFollower" : {
+      "messageTemplate": "{user}\n Just Became a Follower!",
+      "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-love-512.png",
+      "soundId" : "newFollower"
+    },
+    "newSubscriber" : {
+      "messageTemplate": "{user}\n Just Became a {tier} Subscriber!",
+      "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-floater-512.png",
+      "soundId" : "newFollower"
+    }
+  }
+}
