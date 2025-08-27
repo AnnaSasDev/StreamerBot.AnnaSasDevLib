@@ -15,7 +15,6 @@ public static class OnTwitchSubActionExtension {
         if (!SubscriberUpdater.UpdateNewSubscriberText(utilities)) return false;
         
         if (!utilities.Notification.TryPublishNotification("newSubscriber")) return false;
-        if (!utilities.Sound.TryPlaySound(SoundIds.NewSubscriber)) return false;
         if (!utilities.Notification.TryUnPublishNotification()) return false;
         
         return true;

@@ -8,5 +8,5 @@ namespace StreamerBot.AnnaSasDev;
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
 public interface ISoundUtilities {
-    bool TryPlaySound(string soundName);
+    bool TryPlaySound(string soundName, float volume = 1f);
 }

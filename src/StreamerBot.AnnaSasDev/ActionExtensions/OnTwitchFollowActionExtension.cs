@@ -17,7 +17,6 @@ public static class OnTwitchFollowActionExtension {
         if (!FollowUpdater.UpdateNewFollowerText(utilities)) return false;
         
         if (!utilities.Notification.TryPublishNotification("newFollower")) return false;
-        if (!utilities.Sound.TryPlaySound(SoundIds.NewFollower)) return false;
         if (!utilities.Notification.TryUnPublishNotification()) return false;
         
         return true;

@@ -18,7 +18,7 @@ public class SoundUtilities(IStreamerBotUtilities utilities, ILoggingProvider lo
     // -----------------------------------------------------------------------------------------------------------------
     // Methods
     // -----------------------------------------------------------------------------------------------------------------
-    public bool TryPlaySound(string soundName) {
+    public bool TryPlaySound(string soundName, float volume = 1f) {
         if (LazySoundData.Value is null) return logging.WarningAsFalse("Could not parse sound data file {0}", DataFileName);
         if (!LazySoundData.Value.Sounds.TryGetValue(soundName, out string? soundFileName)) return logging.WarningAsFalse("Could not find sound id {0}", soundName);
         if (string.IsNullOrWhiteSpace(soundFileName)) return logging.WarningAsFalse("Could not find valid sound file {0} path", soundName);
@@ -26,7 +26,7 @@ public class SoundUtilities(IStreamerBotUtilities utilities, ILoggingProvider lo
         string fullPath = Path.Combine(LazySoundData.Value.RootFolder, soundFileName);
         if (!File.Exists(fullPath)) return logging.WarningAsFalse("Could not find file {0}", fullPath);
         
-        utilities.InlineInvokeProxy.PlaySound(fullPath, 1f, true);
+        utilities.InlineInvokeProxy.PlaySound(fullPath, volume, true);
         return true;
     }
 }

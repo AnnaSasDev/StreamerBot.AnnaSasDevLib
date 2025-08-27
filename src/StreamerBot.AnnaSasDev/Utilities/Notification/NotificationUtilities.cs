@@ -47,6 +47,8 @@ public class NotificationUtilities(IStreamerBotUtilities utilities, ILoggingProv
             return logging.WarningAsFalse("Could not update notification visibility");
         }
 
+        if (!utilities.Sound.TryPlaySound(template.SoundId, template.SoundVolume)) return false;
+        
         return true;
     }
 
