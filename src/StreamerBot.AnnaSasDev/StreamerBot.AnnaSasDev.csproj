@@ -20,9 +20,14 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.0" />
         <PackageReference Include="Nullable" Version="1.3.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="StringSyntaxAttribute" Version="1.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
 
@@ -38,6 +43,9 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include=".assets\obsData.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include=".assets\soundData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
@@ -157,6 +165,10 @@
 <!--        <Reference Include="$(StreamerBotPath)CommunityToolkit.Mvvm.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)DerConverter.dll" Private="False"/>-->
 <!--        <Reference Include="$(StreamerBotPath)GongSolutions.WPF.DragDrop.dll" Private="False"/>-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Utilities\Logging\" />
     </ItemGroup>
 
 </Project>

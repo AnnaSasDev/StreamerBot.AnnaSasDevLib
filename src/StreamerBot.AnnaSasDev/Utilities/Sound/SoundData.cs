@@ -1,17 +1,17 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-using StreamerBot.AnnaSasDev.Services;
+using System.Text.Json.Serialization;
+using JetBrains.Annotations;
 
-namespace StreamerBot.AnnaSasDev;
+namespace StreamerBot.AnnaSasDev.Utilities;
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-// ReSharper disable once UnusedType.Global
-public static class OnTwitchSubActionExtension {
-    // ReSharper disable once UnusedMember.Global
-    public static bool ExecuteOnTwitchSubscription(this IStreamerBotUtilities utilities)
-        => SubscriberUpdater.UpdateGlobalSubscriberGoal(utilities)
-           && SubscriberUpdater.UpdateNewSubscriberText(utilities)
-           && utilities.Sound.TryPlaySound(SoundIds.NewSubscriber);
+// ReSharper disable once CollectionNeverUpdated.Global
+// ReSharper disable twice AutoPropertyCanBeMadeGetOnly.Global
+[UsedImplicitly]
+public class SoundData {
+    [JsonPropertyName("rootFolder")] public string RootFolder { get; set; } = string.Empty;
+    [JsonPropertyName("sounds")] public Dictionary<string, string> Sounds { get; set; } = new();
 }

@@ -74,6 +74,18 @@ public static class AssetFileProvider {
             return false;
         }
     }
+
+    public static bool TryWriteLineToAssetFile(string fileName, string line) {
+        string fullPath = Path.Combine(AssetFolderPath, fileName);
+        try {
+            File.AppendAllText(fullPath, line + Environment.NewLine);
+            return true;
+        }
+        catch (Exception) {
+            return false;
+        }
+
+    }
     
     public static bool TrySaveJsonAssetFile<T>(string fileName, T data) {
         string json = JsonSerializer.Serialize(data, JsonOptions);

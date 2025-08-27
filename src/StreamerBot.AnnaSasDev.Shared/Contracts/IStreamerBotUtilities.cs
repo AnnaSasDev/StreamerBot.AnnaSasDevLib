@@ -14,4 +14,5 @@ public interface IStreamerBotUtilities {
     IMessageUtilities Messages { get; }
     IChatInputUtilities ChatInput { get; }
     IObsUtilities Obs { get; }
+    ISoundUtilities Sound { get; }
 }

@@ -1,17 +1,14 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-using StreamerBot.AnnaSasDev.Services;
 
 namespace StreamerBot.AnnaSasDev;
+
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
-// ReSharper disable once UnusedType.Global
-public static class OnTwitchSubActionExtension {
-    // ReSharper disable once UnusedMember.Global
-    public static bool ExecuteOnTwitchSubscription(this IStreamerBotUtilities utilities)
-        => SubscriberUpdater.UpdateGlobalSubscriberGoal(utilities)
-           && SubscriberUpdater.UpdateNewSubscriberText(utilities)
-           && utilities.Sound.TryPlaySound(SoundIds.NewSubscriber);
+public static class SoundIds {
+    public const string NewFollower = "newFollower";
+    public const string NewSubscriber = "newSubscriber";
+    public const string BitsDonated = "bitsDonated";
 }

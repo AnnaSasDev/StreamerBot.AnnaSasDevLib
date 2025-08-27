@@ -7,7 +7,7 @@ namespace StreamerBot.AnnaSasDev.Services;
 // ---------------------------------------------------------------------------------------------------------------------
 public static class SubscriberUpdater {
     // ReSharper disable once ConvertIfStatementToReturnStatement
-    public static bool UpdateNeSubscriberText(IStreamerBotUtilities utilities) {
+    public static bool UpdateNewSubscriberText(IStreamerBotUtilities utilities) {
         if (!utilities.Arguments.TryGetActionArg(ActionArguments.User, out string? userName)) throw new Exception("Could not find user name");
         return utilities.Obs.TryUpdateTextSource(SourceReferenceId.TextSubscriber, userName);
     }

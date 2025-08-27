@@ -1,7 +1,6 @@
 ﻿// ---------------------------------------------------------------------------------------------------------------------
 // Imports
 // ---------------------------------------------------------------------------------------------------------------------
-
 using StreamerBot.AnnaSasDev.Services;
 
 namespace StreamerBot.AnnaSasDev;
@@ -15,5 +14,6 @@ public static class OnTwitchFollowActionExtension {
     public static bool ExecuteOnTwitchFollow(this IStreamerBotUtilities utilities)
         => FollowUpdater.UpdateDailyFollowerGoal(utilities)
            && FollowUpdater.UpdateGlobalFollowerGoal(utilities)
-           && FollowUpdater.UpdateNewFollowerText(utilities);
+           && FollowUpdater.UpdateNewFollowerText(utilities)
+           && utilities.Sound.TryPlaySound(SoundIds.NewFollower);
 }
