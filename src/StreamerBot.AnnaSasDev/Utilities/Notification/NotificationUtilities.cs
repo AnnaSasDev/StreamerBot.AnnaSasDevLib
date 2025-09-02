@@ -61,11 +61,14 @@ public class NotificationUtilities(IStreamerBotUtilities utilities, ILoggingProv
             // Gather arguments
             utilities.Arguments.TryGetActionArg(ActionArguments.User, out string? userName);
             utilities.Arguments.TryGetActionArg(ActionArguments.Tier, out string? tier);
+            utilities.Arguments.TryGetActionArg(ActionArguments.Viewers, out string? viewers);
             
             // Fill out template
             filled = template
                 .Replace("{user}", userName)
-                .Replace("{tier}", tier);
+                .Replace("{tier}", tier)
+                .Replace("{viewers}", viewers);
+            
             return true;
         }
         catch (Exception e) {

@@ -21,6 +21,7 @@ public static class ActionArguments {
     public const string FollowerCount = "followerCount";
     public const string SubscriberCount = "subscriberCount";
     public const string Tier = "tier";
+    public const string Viewers = "viewers";
     
     private const string StreamerBotUtilities = nameof(StreamerBotUtilities);
     private const string Global = nameof(Global);
