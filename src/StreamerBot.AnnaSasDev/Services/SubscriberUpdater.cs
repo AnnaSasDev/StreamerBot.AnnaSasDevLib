@@ -16,12 +16,11 @@ public static class SubscriberUpdater {
     public static bool UpdateGlobalSubscriberGoal(IStreamerBotUtilities utilities) {
         if (!utilities.Arguments.TryGetActionArg(ActionArguments.SubscriberCount, out long subCount)) throw new Exception("Could not find subscriber count");
         utilities.Arguments.TryGetGlobalArg(ActionArguments.GlobalSubscriberGoal, out long subGoal);
-        if (subGoal == 0 || subGoal < subCount + 5) {
-            subGoal = subCount + 5;
+        if (subGoal == 0 || subGoal <= subCount) {
+            subGoal = subCount + (5 - subCount % 5);
             utilities.Arguments.TrySetGlobalArg(ActionArguments.GlobalSubscriberGoal, subGoal);
         }
         
         return utilities.Obs.TryUpdateTextSource(SourceReferenceId.TextGoalSubscriber, $"Subs\n{subCount}/{subGoal}");
     }
-    
 }
