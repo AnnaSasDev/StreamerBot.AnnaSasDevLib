@@ -22,6 +22,7 @@ public static class ActionArguments {
     public const string SubscriberCount = "subscriberCount";
     public const string Tier = "tier";
     public const string Viewers = "viewers";
+    public const string GameId = "gameId";
     
     private const string StreamerBotUtilities = nameof(StreamerBotUtilities);
     private const string Global = nameof(Global);
