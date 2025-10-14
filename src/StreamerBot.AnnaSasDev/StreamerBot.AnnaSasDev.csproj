@@ -42,6 +42,9 @@
         <Content Include=".assets\gitActionExtensionData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include=".assets\gitCommit.md">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
         <Content Include=".assets\notificationData.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
