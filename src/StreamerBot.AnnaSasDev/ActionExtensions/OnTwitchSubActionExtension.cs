@@ -10,17 +10,9 @@ namespace StreamerBot.AnnaSasDev;
 // ---------------------------------------------------------------------------------------------------------------------
 public static class OnTwitchSubActionExtension {
     [UsedImplicitly]
-    public static bool ExecuteOnTwitchSubscription(this IStreamerBotUtilities utilities) {
-        if (!SubscriberUpdater.UpdateGlobalSubscriberGoal(utilities)) return false;
-        if (!SubscriberUpdater.UpdateNewSubscriberText(utilities)) return false;
-
-        bool state = false;
-        try {
-            state = utilities.Notification.TryPublishNotification("newSubscriber");
-        }
-        finally {
-            state |= utilities.Notification.TryUnPublishNotification();
-        }
-        return state;
-    }
+    public static bool ExecuteOnTwitchSubscription(this IStreamerBotUtilities utilities) 
+        => SubscriberUpdater.UpdateGlobalSubscriberGoal(utilities)
+            && SubscriberUpdater.UpdateNewSubscriberText(utilities)
+            && utilities.Notification.TryPublishNotification("newSubscriber")
+            && utilities.Notification.TryUnPublishNotification();
 }
