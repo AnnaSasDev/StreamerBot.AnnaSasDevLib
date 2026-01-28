@@ -2,19 +2,19 @@
   "templates" : {
     "newFollower" : {
       "messageTemplate": "{user}\n Just Became a Follower!",
-      "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-love-512.png",
+      "variableDuckyFileName" : "D:/Data/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-love-512.png",
       "soundId" : "newFollower",
       "soundVolume" : 0.1
     },
     "newSubscriber" : {
       "messageTemplate": "{user}\n is a {tier} Subscriber!",
-      "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-subscriber-512.png",
+      "variableDuckyFileName" : "D:/Data/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-subscriber-512.png",
       "soundId" : "newSubscriber",
       "soundVolume" : 0.1
     },
     "newRaid" : {
       "messageTemplate": "{user}\n raided with {viewers} new duckies!",
-      "variableDuckyFileName" : "D:/Dev/sources/internal/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-subscriber-512.png",
+      "variableDuckyFileName" : "D:/Data/obmd-chaotic_ducky-studiodocs/content_creation/streaming/obs/Assets/asset-ducky-subscriber-512.png",
       "soundId" : "newSubscriber",
       "soundVolume" : 0.1
     }
